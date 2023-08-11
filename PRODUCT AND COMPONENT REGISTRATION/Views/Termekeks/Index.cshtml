@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Keszprojekt.Models.Termekek>
+
+@{
+    ViewData["Title"] = "Termékek";
+}
+
+<h1>Termékek</h1>
+
+<p>
+    <a asp-action="Create">Új termék hozzáadása</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Megnevezes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SulyGr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ar)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Megnevezes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SulyGr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ar)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TermekekId">Módosítás</a> |
+                <a asp-action="Details" asp-route-id="@item.TermekekId">Adatok</a> |
+                <a asp-action="Delete" asp-route-id="@item.TermekekId">Törlés</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
